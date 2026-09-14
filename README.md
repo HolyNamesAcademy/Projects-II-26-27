@@ -1,5 +1,9 @@
 # Projects II 2026–27
 
+**Team**
+
+- Person
+
 <!-- Class copy of HolyNamesAcademy/PhaserSupabaseTemplate for 2026–27. -->
 
 A classroom starter for a browser game built with Phaser and Supabase.
@@ -10,24 +14,44 @@ This is the **class repository** for Projects II 2026–27. Students clone this 
 
 ## Table of Contents
 
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Initial Setup](#initial-setup)
-- [Supabase: Local Dev vs Production](#supabase-local-dev-vs-production)
-- [Supabase Setup (Local Dev)](#supabase-setup-local-dev)
-- [Environment Variables](#environment-variables)
-- [Quick Start](#quick-start)
-- [Verify Everything Works](#verify-everything-works)
-- [Development URLs](#development-urls)
-- [Useful Commands](#useful-commands)
-- [Daily Workflow](#daily-workflow)
-- [Project Structure](#project-structure)
-- [Talking to Supabase from Code](#talking-to-supabase-from-code)
-- [What Comes Next](#what-comes-next)
-- [Database and Migrations](#database-and-migrations)
-- [Deploying to GitHub Pages](#deploying-to-github-pages)
-- [For Instructors](#for-instructors)
-- [Troubleshooting](#troubleshooting)
+- [Projects II 2026–27](#projects-ii-202627)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [Initial Setup](#initial-setup)
+    - [1. Install required software](#1-install-required-software)
+    - [2. Clone the class repository](#2-clone-the-class-repository)
+    - [3. Install NVM](#3-install-nvm)
+    - [4. Install Node.js](#4-install-nodejs)
+    - [5. Install dependencies](#5-install-dependencies)
+    - [6. Set up Supabase and `.env`](#6-set-up-supabase-and-env)
+    - [7. Check tools](#7-check-tools)
+  - [Supabase: Local Dev vs Production](#supabase-local-dev-vs-production)
+  - [Supabase Setup (Local Dev)](#supabase-setup-local-dev)
+    - [Create the project](#create-the-project)
+    - [Get your API keys](#get-your-api-keys)
+    - [Apply the starter migration](#apply-the-starter-migration)
+  - [Environment Variables](#environment-variables)
+  - [Quick Start](#quick-start)
+  - [Verify Everything Works](#verify-everything-works)
+  - [Development URLs](#development-urls)
+  - [Useful Commands](#useful-commands)
+  - [Daily Workflow](#daily-workflow)
+  - [Project Structure](#project-structure)
+  - [Talking to Supabase from Code](#talking-to-supabase-from-code)
+  - [What Comes Next](#what-comes-next)
+  - [Database and Migrations](#database-and-migrations)
+  - [Deploying to GitHub Pages](#deploying-to-github-pages)
+    - [Create the production Supabase project](#create-the-production-supabase-project)
+    - [Configure the class GitHub repo](#configure-the-class-github-repo)
+    - [What happens on push to `main`](#what-happens-on-push-to-main)
+    - [Optional local checks](#optional-local-checks)
+  - [For Instructors](#for-instructors)
+    - [This year’s values](#this-years-values)
+    - [Student access and `main`](#student-access-and-main)
+    - [Syncing template ↔ class (no forks)](#syncing-template--class-no-forks)
+  - [Troubleshooting](#troubleshooting)
+    - [Getting help](#getting-help)
 
 ## Features
 
