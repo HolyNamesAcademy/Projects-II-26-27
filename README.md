@@ -388,7 +388,7 @@ npm run format:check
 npm run build
 ```
 
-Then push your branch and open a pull request into `main`. Wait for the **`ci`** check to pass, then merge. Do not push straight to `main`.
+Then push your branch and open a pull request into `main`. Wait for the **`ci`** check to pass and for someone else to **Approve** the PR, then merge. Do not push straight to `main`.
 
 Stop the dev server with `Ctrl+C`.
 
@@ -523,11 +523,11 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 
 - Org team **`Projects 2 - 26-27`** has **write** access (add students to that team)
 - Org team **`Teachers`** has **maintain** access
-- Branch ruleset on `main`: no force-push/delete, **PRs required**, **`ci` check must pass**
+- Branch ruleset on `main`: no force-push/delete, **PRs required**, **1 approving review**, **`ci` must pass** (new commits after approval need a fresh approval)
 - Org Classroom rulesets also lock the default branch history and the `feedback` branch
 - Merged PR branches can be deleted automatically (`delete_branch_on_merge`)
 
-Students should branch → open a PR → wait for CI → merge (self-merge is fine once CI is green). Org admins can bypass the ruleset when needed.
+Students should branch → open a PR → wait for CI → get a classmate or teacher to **Approve** → then merge. Do not merge your own PR without an approval. Org admins can bypass the ruleset when needed.
 
 **Setup-day tip (Macs):** on the class period when students first set up their machines, have everyone run `xcode-select --install` in the **first few minutes**. Command Line Tools often take **15-20 minutes**; starting late blocks cloning and Node install for the rest of the period.
 
