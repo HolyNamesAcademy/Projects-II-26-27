@@ -4,7 +4,7 @@ Notes for AI coding tools (and humans) working in this repo.
 
 ## What this repo is
 
-**Class repository** for Projects II 2026-27 (copied from [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate)). Students work here. Pull shared template fixes from the upstream sibling remote when needed (see README → For Instructors). Production Supabase Actions variables still need to be set once that project exists.
+**Class repository** for Projects II 2026-27 (copied from [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate)). Students work here. Shared fixes land on the template first, then merge into this repo (see README → For Instructors). Class-only notes (access, this year’s URLs, production) stay here.
 
 ## Stack
 

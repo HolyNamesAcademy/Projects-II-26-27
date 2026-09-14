@@ -546,7 +546,10 @@ Do **not** fork the template into the class repo. Forks complicate student PRs (
 | Upstream template (shared fixes) | https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate |
 | Class copy (this year) | https://github.com/HolyNamesAcademy/Projects-II-26-27 |
 
-Land template-level fixes on **PhaserSupabaseTemplate** first, then pull them into the class repo.
+**What goes where**
+
+- **Shared changes** (setup docs, tooling, demo scene, CI, migrations students should inherit): edit **PhaserSupabaseTemplate** first, then merge `template/main` into this class repo on a branch and open a PR.
+- **Class-only changes** (this year’s title/URLs, team access notes, production Supabase name, rulesets, student roster workflow): edit **this repo only**. Do not copy those back into the template.
 
 On the **class** clone, add the template remote once:
 
@@ -554,13 +557,15 @@ On the **class** clone, add the template remote once:
 git remote add template git@github.com:HolyNamesAcademy/PhaserSupabaseTemplate.git
 ```
 
-Pull template fixes into the class repo:
+Bring template fixes into the class repo (use a branch + PR because `main` is protected):
 
 ```bash
 git fetch template
+git checkout -b sync/template-$(date +%Y%m%d)
 git merge template/main
-# resolve conflicts (placeholders / class-only edits), then:
-git push origin main
+# resolve conflicts if any (usually README / AGENTS class-specific bits), then:
+git push -u origin HEAD
+# open a PR into main
 ```
 
 Optional on the **template** clone (compare or cherry-pick the other way):
