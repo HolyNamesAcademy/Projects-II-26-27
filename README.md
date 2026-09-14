@@ -469,21 +469,22 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 | Site title | `Projects II 2026–27` |
 | GitHub org | `HolyNamesAcademy` |
 | Class repo | `Projects-II-26-27` |
-| Production Supabase project | *not created yet* (suggested name: `projects2-26-27-production`) |
+| Production Supabase project | Created (Actions variables set on this repo) |
+| Public site | https://holynamesacademy.github.io/Projects-II-26-27/ |
 
-Still to do for Pages:
+### Student access and `main`
 
-1. Create the class production Supabase project and apply `supabase/migrations/`
-2. Set Actions variables `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` on this repo
-3. Enable Pages → GitHub Actions
+- Org team **`Projects 2 - 26-27`** has **write** access (add students to that team)
+- Org team **`Teachers`** has **maintain** access
+- Branch ruleset on `main`: no force-push/delete, **PRs required**, **`ci` check must pass**
+- Org Classroom rulesets also lock the default branch history and the `feedback` branch
+- Merged PR branches can be deleted automatically (`delete_branch_on_merge`)
 
-`VITE_BASE_PATH` is set automatically from the repository name (`/Projects-II-26-27/`).
-
-**Tip:** GitHub Pages URLs use the org’s lowercase form (`holynamesacademy.github.io`).
+Students should branch → open a PR → wait for CI → merge (self-merge is fine once CI is green). Org admins can bypass the ruleset when needed.
 
 CI and deploy run on this class repo. They stay skipped on the upstream template (`HolyNamesAcademy/PhaserSupabaseTemplate`).
 
-Students clone `https://github.com/HolyNamesAcademy/Projects-II-26-27.git`, each create a personal local-dev Supabase project + `.env`, and push here. Pages will use the class production project once it exists.
+Students clone `https://github.com/HolyNamesAcademy/Projects-II-26-27.git`, each create a personal local-dev Supabase project + `.env`, and push via PRs. Pages uses the class production project from repository Actions variables.
 
 Next year: start a fresh class repo from [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) again.
 
