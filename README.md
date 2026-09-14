@@ -40,7 +40,7 @@ This is the **class repository** for Projects II 2026–27. Students clone this 
 
 ## Prerequisites
 
-- Node.js **22.20.0** (see `.nvmrc`)
+- Node.js **24.21.0** (see `.nvmrc`)
 - npm (comes with Node)
 - Git
 - Visual Studio Code (recommended)
@@ -126,7 +126,7 @@ Save (`Ctrl+X`, then `Y`, then `Enter`), then open a **new** terminal.
 ```bash
 NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist nvm install
 nvm use
-node -v   # should show v22.20.0
+node -v   # should show v24.21.0
 ```
 
 </details>
@@ -137,7 +137,7 @@ node -v   # should show v22.20.0
 ```bash
 nvm install
 nvm use
-node -v   # should show v22.20.0
+node -v   # should show v24.21.0
 ```
 
 </details>
@@ -169,7 +169,7 @@ Follow [Supabase: Local Dev vs Production](#supabase-local-dev-vs-production), t
 ### 7. Check tools
 
 ```bash
-node -v    # v22.20.0
+node -v    # v24.21.0
 git --version
 npm -v
 ```
@@ -577,7 +577,7 @@ Also confirm:
 ```bash
 nvm install
 nvm use
-node -v   # should match .nvmrc (v22.20.0)
+node -v   # should match .nvmrc (v24.21.0)
 ```
 
 </details>
