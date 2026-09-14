@@ -326,6 +326,7 @@ npm run install:school npm install with a temporary SSL workaround
 
 ```bash
 git pull
+git checkout -b your-branch-name
 npm install            # only if dependencies changed
 npm run dev
 ```
@@ -335,13 +336,15 @@ npm run dev
 - Vite reloads the browser when you save
 - If you change the database schema, add SQL under `supabase/migrations/`, run it on your local-dev project, and make sure the class production project gets the same SQL before or when you deploy
 
-Before you push:
+Before you open a PR:
 
 ```bash
 npm run lint
 npm run format:check
 npm run build
 ```
+
+Then push your branch and open a pull request into `main`. Wait for the **`ci`** check to pass, then merge. Do not push straight to `main`.
 
 Stop the dev server with `Ctrl+C`.
 
