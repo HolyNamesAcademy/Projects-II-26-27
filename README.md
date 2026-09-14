@@ -87,6 +87,8 @@ Details are in [Initial Setup](#initial-setup).
 
 ## Initial Setup
 
+**Mac first:** if you are on a Mac, start **Xcode Command Line Tools** before anything else — the install often takes **15–20 minutes**. Kick it off, then continue with VS Code / accounts while it runs.
+
 ### 1. Install required software
 
 **Visual Studio Code**
@@ -96,16 +98,18 @@ Details are in [Initial Setup](#initial-setup).
 **Git**
 
 - **Windows:** https://gitforwindows.org/ (includes Git Bash)
-- **Mac:** `xcode-select --install`
+- **Mac:** `xcode-select --install` (do this at the **start of class** on setup day)
 
 <details>
 <summary><strong>Mac — Xcode Command Line Tools</strong></summary>
+
+This provides Git (and other build tools) on macOS. The download/install commonly takes **15–20 minutes**.
 
 ```bash
 xcode-select --install
 ```
 
-Click Install if prompted.
+Click Install if prompted. Leave the installer running and move on to VS Code, GitHub, and Supabase account setup while you wait.
 
 </details>
 
@@ -508,6 +512,8 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 - Merged PR branches can be deleted automatically (`delete_branch_on_merge`)
 
 Students should branch → open a PR → wait for CI → merge (self-merge is fine once CI is green). Org admins can bypass the ruleset when needed.
+
+**Setup-day tip (Macs):** on the class period when students first set up their machines, have everyone run `xcode-select --install` in the **first few minutes**. Command Line Tools often take **15–20 minutes**; starting late blocks cloning and Node install for the rest of the period.
 
 CI and deploy run on this class repo. They stay skipped on the upstream template (`HolyNamesAcademy/PhaserSupabaseTemplate`).
 
