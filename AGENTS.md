@@ -1,10 +1,10 @@
-# PhaserSupabaseTemplate
+# Projects II 2026–27
 
 Notes for AI coding tools (and humans) working in this repo.
 
 ## What this repo is
 
-Reusable **classroom template**. Each year it is copied into a new class repository; replace every `«…»` placeholder (see README → For Instructors), set production Supabase Actions variables, and have students clone that class repo — not the upstream template.
+**Class repository** for Projects II 2026–27 (copied from [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate)). Students work here. Pull shared template fixes from the upstream sibling remote when needed (see README → For Instructors). Production Supabase Actions variables still need to be set once that project exists.
 
 ## Stack
 

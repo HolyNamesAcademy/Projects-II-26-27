@@ -1,14 +1,12 @@
-# «CLASS_SITE_TITLE»
+# Projects II 2026–27
 
-<!-- Upstream template name: PhaserSupabaseTemplate. On each class copy, set «CLASS_SITE_TITLE» (e.g. Projects II 2026–27). -->
+<!-- Class copy of HolyNamesAcademy/PhaserSupabaseTemplate for 2026–27. -->
 
-A classroom **template** for a browser game built with Phaser and Supabase.
+A classroom starter for a browser game built with Phaser and Supabase.
 
 Install Node, add your Supabase keys, and run the game. No Docker, no Java, and no separate backend server.
 
-This GitHub repo is the reusable template. Each year the instructor copies it into a **class repository**. Students clone that class repo — not this template — and use it for the year.
-
-**Yearly placeholders** look like `«THIS»`. Instructors replace every `«…»` marker when creating the class copy (see [For Instructors](#for-instructors)).
+This is the **class repository** for Projects II 2026–27. Students clone this repo. Shared template fixes live upstream in [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) and can be merged in (see [For Instructors](#for-instructors)).
 
 ## Table of Contents
 
@@ -89,17 +87,17 @@ Click Install if prompted.
 
 ### 2. Clone the class repository
 
-Use the **class repository** your instructor shared (a yearly copy of this template).
+Use this class repository (shared by your instructor).
 
 1. Open the class repo on GitHub
 2. Click **Code** and copy the URL
 3. In VS Code: **Clone Repository**, paste the URL, open the folder
 
-Or in Git Bash / Terminal (replace with your class repo):
+Or in Git Bash / Terminal:
 
 ```bash
-git clone https://github.com/«CLASS_GITHUB_ORG»/«CLASS_REPO_NAME».git
-cd «CLASS_REPO_NAME»
+git clone https://github.com/HolyNamesAcademy/Projects-II-26-27.git
+cd Projects-II-26-27
 ```
 
 ### 3. Install NVM
@@ -309,7 +307,7 @@ If that passes, your computer, `.env`, and local-dev Supabase project are set up
 | Game (local) | http://localhost:5173 | Phaser app + connection demo |
 | Your local Supabase | https://supabase.com/dashboard | Project from your `.env` |
 | Class production Supabase | https://supabase.com/dashboard | Shared project for GitHub Pages |
-| GitHub Pages | `https://«CLASS_GITHUB_ORG».github.io/«CLASS_REPO_NAME»/` | Public site (after deploy is set up) |
+| GitHub Pages | `https://holynamesacademy.github.io/Projects-II-26-27/` | Public site (after deploy is set up) |
 
 ## Useful Commands
 
@@ -418,7 +416,7 @@ The public site must use the **class production** Supabase project, not a studen
 (Instructor / class once)
 
 1. Create one shared project (same form as [Create the project](#create-the-project))
-2. Name it something like `«CLASS_PRODUCTION_SUPABASE_NAME»` (e.g. `projects2-26-27-production`)
+2. Name it something like `projects2-26-27-production` (create when you are ready; no name is reserved yet)
 3. Same security settings: Data API **on**, automatically expose new tables **off**, automatic RLS **on**
 4. Run every file in `supabase/migrations/` in that project’s SQL Editor
 5. Copy the **Project URL** and **publishable** key
@@ -436,7 +434,7 @@ The public site must use the **class production** Supabase project, not a studen
 
 ```text
 push to main
-  → Actions builds with VITE_BASE_PATH=/«CLASS_REPO_NAME»/
+  → Actions builds with VITE_BASE_PATH=/Projects-II-26-27/
   → Build embeds production Supabase URL + publishable key
   → Publishes to GitHub Pages
 ```
@@ -444,7 +442,7 @@ push to main
 Site URL:
 
 ```text
-https://«CLASS_GITHUB_ORG».github.io/«CLASS_REPO_NAME»/
+https://holynamesacademy.github.io/Projects-II-26-27/
 ```
 
 The deploy workflow sets `VITE_BASE_PATH` from the repository name, so you usually do not edit it by hand.
@@ -452,7 +450,7 @@ The deploy workflow sets `VITE_BASE_PATH` from the repository name, so you usual
 ### Optional local checks
 
 ```bash
-VITE_BASE_PATH=/«CLASS_REPO_NAME»/ npm run build
+VITE_BASE_PATH=/Projects-II-26-27/ npm run build
 npm run preview
 ```
 
@@ -464,39 +462,30 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 
 ## For Instructors
 
-### Yearly placeholders
+### This year’s values
 
-Search the class copy for `«` and replace every marker:
+| Field | Value |
+|-------|-------|
+| Site title | `Projects II 2026–27` |
+| GitHub org | `HolyNamesAcademy` |
+| Class repo | `Projects-II-26-27` |
+| Production Supabase project | *not created yet* (suggested name: `projects2-26-27-production`) |
 
-| Placeholder | Meaning | Example |
-|-------------|---------|---------|
-| `«CLASS_SITE_TITLE»` | Visible project title (README + `index.html`) | `Projects II 2026–27` |
-| `«CLASS_GITHUB_ORG»` | GitHub org or user that owns the class repo | `HolyNamesAcademy` |
-| `«CLASS_REPO_NAME»` | Class GitHub repository name | `Projects-II-26-27` |
-| `«CLASS_PRODUCTION_SUPABASE_NAME»` | Shared production Supabase project name | `projects2-26-27-production` |
+Still to do for Pages:
 
-Also set GitHub Actions variables on the class repo (not placeholders in files):
+1. Create the class production Supabase project and apply `supabase/migrations/`
+2. Set Actions variables `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` on this repo
+3. Enable Pages → GitHub Actions
 
-- `VITE_SUPABASE_URL` — class production Project URL
-- `VITE_SUPABASE_PUBLISHABLE_KEY` — class production publishable key
+`VITE_BASE_PATH` is set automatically from the repository name (`/Projects-II-26-27/`).
 
-`VITE_BASE_PATH` is set automatically from the GitHub repository name in the deploy workflow (it should match `«CLASS_REPO_NAME»`).
+**Tip:** GitHub Pages URLs use the org’s lowercase form (`holynamesacademy.github.io`).
 
-**Tip:** GitHub Pages URLs use the org’s lowercase form (e.g. `holynamesacademy.github.io`), even if the org display name has capitals.
+CI and deploy run on this class repo. They stay skipped on the upstream template (`HolyNamesAcademy/PhaserSupabaseTemplate`).
 
-### Each year (or section)
+Students clone `https://github.com/HolyNamesAcademy/Projects-II-26-27.git`, each create a personal local-dev Supabase project + `.env`, and push here. Pages will use the class production project once it exists.
 
-1. Create a new class GitHub repo named `«CLASS_REPO_NAME»` under `«CLASS_GITHUB_ORG»` (from this template, or copy its contents)
-2. Replace every `«…»` placeholder in the class copy (start with `«CLASS_SITE_TITLE»` in this README and in `index.html`)
-3. Create the class production Supabase project `«CLASS_PRODUCTION_SUPABASE_NAME»` and apply `supabase/migrations/`
-4. Set Actions variables `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` on the **class** repo
-5. Enable Pages → GitHub Actions
-
-CI and deploy workflows are **skipped on this upstream template** (`HolyNamesAcademy/PhaserSupabaseTemplate`). They run automatically on class copies under a different repo name — no workflow edits required.
-
-Students then clone `https://github.com/«CLASS_GITHUB_ORG»/«CLASS_REPO_NAME».git`, each create a personal local-dev Supabase project + `.env`, and push to the class repo. Pages uses the class production project.
-
-Start the next year with a fresh class repo (and usually a fresh production Supabase project) copied from this template again.
+Next year: start a fresh class repo from [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) again.
 
 ### Syncing template ↔ class (no forks)
 
@@ -505,7 +494,7 @@ Do **not** fork the template into the class repo. Forks complicate student PRs (
 | Role | Repo |
 |------|------|
 | Upstream template (shared fixes) | https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate |
-| Class copy (this year) | https://github.com/«CLASS_GITHUB_ORG»/«CLASS_REPO_NAME» |
+| Class copy (this year) | https://github.com/HolyNamesAcademy/Projects-II-26-27 |
 
 Land template-level fixes on **PhaserSupabaseTemplate** first, then pull them into the class repo.
 
@@ -527,7 +516,7 @@ git push origin main
 Optional on the **template** clone (compare or cherry-pick the other way):
 
 ```bash
-git remote add class git@github.com:«CLASS_GITHUB_ORG»/«CLASS_REPO_NAME».git
+git remote add class git@github.com:HolyNamesAcademy/Projects-II-26-27.git
 ```
 
 
@@ -608,7 +597,7 @@ npm run install:school
 - Pages source is **GitHub Actions**
 - Deploy workflow succeeded under **Actions**
 - Actions variables are set
-- Open the URL including the repo subpath (`/«CLASS_REPO_NAME»/`)
+- Open the URL including the repo subpath (`/Projects-II-26-27/`)
 
 </details>
 
