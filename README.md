@@ -1,8 +1,10 @@
-# Projects II 2026-27
+# Projects II 26-27
 
 **Team**
 
 - Person
+
+---
 
 <!-- Class copy of HolyNamesAcademy/PhaserSupabaseTemplate for 2026-27. -->
 
@@ -10,11 +12,11 @@ A classroom starter for a browser game built with Phaser and Supabase.
 
 Install Node, add your Supabase keys, and run the game. No Docker, no Java, and no separate backend server.
 
-This is the **class repository** for Projects II 2026-27. Students clone this repo. Shared template fixes live upstream in [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) and can be merged in (see [For Instructors](#for-instructors)).
+This is the **class repository** for Projects II 26-27. Students clone this repo. Shared template fixes live upstream in [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) and can be merged in (see [For Instructors](#for-instructors)).
 
 ## Table of Contents
 
-- [Projects II 2026-27](#projects-ii-202627)
+- [Projects II 26-27](#projects-ii-26-27)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
@@ -513,7 +515,7 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 
 | Field | Value |
 |-------|-------|
-| Site title | `Projects II 2026-27` |
+| Site title | `Projects II 26-27` |
 | GitHub org | `HolyNamesAcademy` |
 | Class repo | `Projects-II-26-27` |
 | Production Supabase project | Created (Actions variables set on this repo) |
