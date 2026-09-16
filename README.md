@@ -1,20 +1,24 @@
-# Projects II 2026–27
+# Projects II 26-27
 
 **Team**
 
 - ailichong
+- Chloehar
 
-<!-- Class copy of HolyNamesAcademy/PhaserSupabaseTemplate for 2026–27. -->
+
+---
+
+<!-- Class copy of HolyNamesAcademy/PhaserSupabaseTemplate for 2026-27. -->
 
 A classroom starter for a browser game built with Phaser and Supabase.
 
 Install Node, add your Supabase keys, and run the game. No Docker, no Java, and no separate backend server.
 
-This is the **class repository** for Projects II 2026–27. Students clone this repo. Shared template fixes live upstream in [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) and can be merged in (see [For Instructors](#for-instructors)).
+This is the **class repository** for Projects II 26-27. Students clone this repo. Shared template fixes live upstream in [PhaserSupabaseTemplate](https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate) and can be merged in (see [For Instructors](#for-instructors)).
 
 ## Table of Contents
 
-- [Projects II 2026–27](#projects-ii-202627)
+- [Projects II 26-27](#projects-ii-26-27)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites](#prerequisites)
@@ -87,6 +91,8 @@ Details are in [Initial Setup](#initial-setup).
 
 ## Initial Setup
 
+**Mac first:** if you are on a Mac, start **Xcode Command Line Tools** before anything else. The install often takes **15-20 minutes**. Kick it off, then continue with VS Code / accounts while it runs.
+
 ### 1. Install required software
 
 **Visual Studio Code**
@@ -96,33 +102,51 @@ Details are in [Initial Setup](#initial-setup).
 **Git**
 
 - **Windows:** https://gitforwindows.org/ (includes Git Bash)
-- **Mac:** `xcode-select --install`
+- **Mac:** `xcode-select --install` (do this at the **start of class** on setup day)
 
 <details>
-<summary><strong>Mac — Xcode Command Line Tools</strong></summary>
+<summary><strong>Mac: Xcode Command Line Tools</strong></summary>
+
+This provides Git (and other build tools) on macOS. The download/install commonly takes **15-20 minutes**.
 
 ```bash
 xcode-select --install
 ```
 
-Click Install if prompted.
+Click Install if prompted. Leave the installer running and move on to VS Code, GitHub, and Supabase account setup while you wait.
 
 </details>
 
 ### 2. Clone the class repository
 
+**Where to put it:** keep class projects in `~/Development` under your home folder (on a Mac: `/Users/yourname/Development`). On a Mac, **Documents is synced with iCloud** (Desktop often is too). Do **not** clone into an iCloud-synced folder. iCloud sync flips file permissions and makes Git show every file as changed.
+
+```bash
+mkdir -p ~/Development
+cd ~/Development
+```
+
 Use this class repository (shared by your instructor).
 
 1. Open the class repo on GitHub
 2. Click **Code** and copy the URL
-3. In VS Code: **Clone Repository**, paste the URL, open the folder
+3. In VS Code: **Clone Repository**, paste the URL, and choose `~/Development` as the parent folder
 
 Or in Git Bash / Terminal:
 
 ```bash
+cd ~/Development
 git clone https://github.com/HolyNamesAcademy/Projects-II-26-27.git
 cd Projects-II-26-27
 ```
+
+Right after cloning, ignore file-permission noise if your machine still reports mode flips:
+
+```bash
+git config core.filemode false
+```
+
+Same idea for OneDrive or Google Drive: keep the repo on a normal local path like `~/Development`, not inside a cloud-synced folder.
 
 ### 3. Install NVM
 
@@ -235,7 +259,7 @@ Every student creates their own Supabase project for local development.
 | Field | What to choose |
 |------|----------------|
 | **Organization** | Your personal org, unless your instructor says otherwise |
-| **GitHub (optional)** | Leave unset — migrations live in this game repo |
+| **GitHub (optional)** | Leave unset; migrations live in this game repo |
 | **Project name** | e.g. `alex-projects2-dev` (your name + `dev`) |
 | **Database password** | Click **Generate a password** and save it somewhere safe. You rarely need it here, but you cannot view it again later. |
 | **Region** | Closest to you (**Americas** is fine for most US West classrooms) |
@@ -248,7 +272,7 @@ Every student creates their own Supabase project for local development.
 | **Automatically expose new tables** | **Off** | Access stays intentional; our SQL includes the required `GRANT`s |
 | **Enable automatic RLS** | **On** | Good default for this course |
 
-5. Click **Create new project** and wait until it finishes (often 1–2 minutes)
+5. Click **Create new project** and wait until it finishes (often 1-2 minutes)
 
 ### Get your API keys
 
@@ -296,7 +320,7 @@ Restart `npm run dev` after changing `.env`.
 
 `.env` is gitignored. Production keys go in GitHub Actions variables on the class repo.
 
-Anything shipped to GitHub Pages is public. Security comes from Auth and Row Level Security later — not from hiding the publishable key.
+Anything shipped to GitHub Pages is public. Security comes from Auth and Row Level Security later, not from hiding the publishable key.
 
 ## Quick Start
 
@@ -306,13 +330,13 @@ Finish setup above first, then:
 npm run dev
 ```
 
-Open the URL Vite prints (usually http://localhost:5173). You should see **Connected — demo_messages loaded** and a hello message.
+Open the URL Vite prints (usually http://localhost:5173). You should see **Connected: demo_messages loaded** and a hello message.
 
 ## Verify Everything Works
 
 1. `npm run dev` starts without errors
 2. The Phaser canvas appears
-3. Status shows **Connected — demo_messages loaded**
+3. Status shows **Connected: demo_messages loaded**
 4. You see something like `#1  Hello from Supabase!`
 5. **Refresh** still works
 
@@ -368,7 +392,7 @@ npm run format:check
 npm run build
 ```
 
-Then push your branch and open a pull request into `main`. Wait for the **`ci`** check to pass, then merge. Do not push straight to `main`.
+Then push your branch and open a pull request into `main`. Wait for the **`ci`** check to pass and for someone else to **Approve** the PR, then merge. Do not push straight to `main`.
 
 Stop the dev server with `Ctrl+C`.
 
@@ -401,7 +425,7 @@ Stop the dev server with `Ctrl+C`.
 
 ## Talking to Supabase from Code
 
-The starter migration creates `demo_messages` — only to prove connectivity.
+The starter migration creates `demo_messages` only to prove connectivity.
 
 ```typescript
 import { getDemoMessages } from '@/services/demo';
@@ -453,8 +477,8 @@ The public site must use the **class production** Supabase project, not a studen
 1. Open the class repo **Settings → Pages**
 2. Set Source to **GitHub Actions**
 3. Open **Settings → Secrets and variables → Actions → Variables** and add:
-   - `VITE_SUPABASE_URL` — production Project URL
-   - `VITE_SUPABASE_PUBLISHABLE_KEY` — production publishable key
+   - `VITE_SUPABASE_URL`: production Project URL
+   - `VITE_SUPABASE_PUBLISHABLE_KEY`: production publishable key
 4. Allow GitHub Actions to run
 
 ### What happens on push to `main`
@@ -493,7 +517,7 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 
 | Field | Value |
 |-------|-------|
-| Site title | `Projects II 2026–27` |
+| Site title | `Projects II 26-27` |
 | GitHub org | `HolyNamesAcademy` |
 | Class repo | `Projects-II-26-27` |
 | Production Supabase project | Created (Actions variables set on this repo) |
@@ -503,11 +527,13 @@ VITE_SUPABASE_URL=... VITE_SUPABASE_PUBLISHABLE_KEY=... npm run dev
 
 - Org team **`Projects 2 - 26-27`** has **write** access (add students to that team)
 - Org team **`Teachers`** has **maintain** access
-- Branch ruleset on `main`: no force-push/delete, **PRs required**, **`ci` check must pass**
+- Branch ruleset on `main`: no force-push/delete, **PRs required**, **1 approving review**, **`ci` must pass** (new commits after approval need a fresh approval)
 - Org Classroom rulesets also lock the default branch history and the `feedback` branch
 - Merged PR branches can be deleted automatically (`delete_branch_on_merge`)
 
-Students should branch → open a PR → wait for CI → merge (self-merge is fine once CI is green). Org admins can bypass the ruleset when needed.
+Students should branch → open a PR → wait for CI → get a classmate or teacher to **Approve** → then merge. Do not merge your own PR without an approval. Org admins can bypass the ruleset when needed.
+
+**Setup-day tip (Macs):** on the class period when students first set up their machines, have everyone run `xcode-select --install` in the **first few minutes**. Command Line Tools often take **15-20 minutes**; starting late blocks cloning and Node install for the rest of the period.
 
 CI and deploy run on this class repo. They stay skipped on the upstream template (`HolyNamesAcademy/PhaserSupabaseTemplate`).
 
@@ -524,7 +550,10 @@ Do **not** fork the template into the class repo. Forks complicate student PRs (
 | Upstream template (shared fixes) | https://github.com/HolyNamesAcademy/PhaserSupabaseTemplate |
 | Class copy (this year) | https://github.com/HolyNamesAcademy/Projects-II-26-27 |
 
-Land template-level fixes on **PhaserSupabaseTemplate** first, then pull them into the class repo.
+**What goes where**
+
+- **Shared changes** (setup docs, tooling, demo scene, CI, migrations students should inherit): edit **PhaserSupabaseTemplate** first, then merge `template/main` into this class repo on a branch and open a PR.
+- **Class-only changes** (this year’s title/URLs, team access notes, production Supabase name, rulesets, student roster workflow): edit **this repo only**. Do not copy those back into the template.
 
 On the **class** clone, add the template remote once:
 
@@ -532,13 +561,15 @@ On the **class** clone, add the template remote once:
 git remote add template git@github.com:HolyNamesAcademy/PhaserSupabaseTemplate.git
 ```
 
-Pull template fixes into the class repo:
+Bring template fixes into the class repo (use a branch + PR because `main` is protected):
 
 ```bash
 git fetch template
+git checkout -b sync/template-$(date +%Y%m%d)
 git merge template/main
-# resolve conflicts (placeholders / class-only edits), then:
-git push origin main
+# resolve conflicts if any (usually README / AGENTS class-specific bits), then:
+git push -u origin HEAD
+# open a PR into main
 ```
 
 Optional on the **template** clone (compare or cherry-pick the other way):
@@ -549,6 +580,25 @@ git remote add class git@github.com:HolyNamesAcademy/Projects-II-26-27.git
 
 
 ## Troubleshooting
+
+<details>
+<summary><strong>Git says every file changed (permissions / mode only)</strong></summary>
+
+Do **not** commit that. It is almost never a real project change. Git is seeing file modes flip (for example `644` to `755`) after VS Code or a cloud-sync folder touches the tree.
+
+In the repo folder:
+
+```bash
+git config core.filemode false
+git restore .
+git status
+```
+
+You should be back to a clean tree (or only your real edits). Then make the name / code change and commit that alone.
+
+If `git status` is still noisy, re-clone under `~/Development` (not Mac `Documents` or Desktop, which are iCloud-synced), run `git config core.filemode false` again, and continue.
+
+</details>
 
 <details>
 <summary><strong>Local works but GitHub Pages shows wrong or empty data</strong></summary>
@@ -650,4 +700,4 @@ Stop the other process, or use the alternate URL Vite prints.
 1. Re-check setup, local Supabase, and `.env`
 2. Run `npm run smoke` and read the error
 3. Check the browser console
-4. Ask your instructor or a classmate — include what you tried and the exact error text
+4. Ask your instructor or a classmate. Include what you tried and the exact error text
