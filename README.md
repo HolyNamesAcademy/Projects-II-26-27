@@ -2,7 +2,7 @@
 
 **Team**
 
-- Person
+- ailichong
 
 <!-- Class copy of HolyNamesAcademy/PhaserSupabaseTemplate for 2026–27. -->
 
