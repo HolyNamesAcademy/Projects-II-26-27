@@ -33,7 +33,7 @@ This GitHub repo is the reusable template. Each year the instructor copies it in
 
 ## Features
 
-- Phaser 3 + TypeScript + Vite (hot reload)
+- Phaser 4 + TypeScript + Vite (hot reload)
 - Small demo that checks your Supabase connection
 - Personal local-dev Supabase project per student; one shared production project for the class site
 - Supabase helpers live in `src/services/` (not inside Phaser scenes)

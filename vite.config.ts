@@ -19,5 +19,14 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          phaser: ['phaser'],
+        },
+      },
+    },
+    // Phaser 4's own bundle is larger than Vite's default 500 kB warning.
+    chunkSizeWarningLimit: 2000,
   },
 });
