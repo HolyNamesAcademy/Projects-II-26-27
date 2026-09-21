@@ -26,6 +26,4 @@ body {
 
 #game-container canvas {
   display: block;
-  margin: 0 auto;
-  image-rendering: auto;
 }

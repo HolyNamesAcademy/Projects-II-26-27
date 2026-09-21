@@ -8,7 +8,8 @@ Notes for AI coding tools (and humans) working in this repo.
 
 ## Stack
 
-- Phaser 3 + TypeScript + Vite for the game
+- Phaser 4 + TypeScript + Vite for the game
+- Game config follows Phaser 4 setup: `Phaser.AUTO` (WebGL, Canvas only as fallback), size and parent live under `scale` (FIT + center), `roundPixels: true` for this static UI (v4 default is false)
 - Supabase for backend data
 - GitHub Pages for hosting
 

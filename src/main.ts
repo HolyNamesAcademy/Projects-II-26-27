@@ -1,7 +1,7 @@
-import Phaser from 'phaser';
+import { Game } from 'phaser';
 import { gameConfig } from './game/config';
 import './style.css';
 
-const game = new Phaser.Game(gameConfig);
+const game = new Game(gameConfig);
 
 export default game;
