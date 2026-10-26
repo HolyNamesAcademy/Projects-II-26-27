@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { DemoScene } from './scenes/DemoScene';
+import { MapScene } from './scenes/MapScene';
 
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
@@ -23,5 +24,5 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   render: {
     roundPixels: true,
   },
-  scene: [BootScene, DemoScene],
+  scene: [BootScene, DemoScene, MapScene],
 };
