@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { DemoScene } from './scenes/DemoScene';
+import { MapScene } from './scenes/MapScene';
 
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
@@ -12,6 +13,9 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   backgroundColor: '#0b1220',
   disableContextMenu: true,
+  dom: {
+    createContainer: true,
+  },
   scale: {
     mode: Phaser.Scale.FIT,
     parent: 'game-container',
@@ -22,6 +26,13 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   },
   render: {
     roundPixels: true,
+    antialias: false,
   },
-  scene: [BootScene, DemoScene],
+  physics: {
+    default: 'arcade',
+    arcade: {
+      debug: true,
+    },
+  },
+  scene: [BootScene, DemoScene, MapScene],
 };

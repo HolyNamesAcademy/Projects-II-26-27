@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import { getDemoMessages } from '../../services/demo';
+import { installMaze } from '../../services/minigames/maze';
+import { installRegister } from '../../services/auth';
 import { isSupabaseConfigured } from '../../services/supabase';
 
 // Simple screen that loads a row from Supabase to confirm setup works.
@@ -9,6 +11,8 @@ export class DemoScene extends Phaser.Scene {
 
   constructor() {
     super('DemoScene');
+    installMaze();
+    installRegister();
   }
 
   create(): void {
