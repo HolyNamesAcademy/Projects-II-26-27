@@ -24,7 +24,10 @@ export class MapScene extends Phaser.Scene {
       .setOrigin(0)
       .setScale(1 / 4);
 
-    const island = this.add.sprite(this.scale.width / 2, this.scale.height / 2, this.gem ?? '').setScale(8).play(this.gem ?? '');
+    const island = this.add.sprite(this.scale.width / 2, this.scale.height / 2, this.gem ?? '')
+    .setScale(8)
+    .setInteractive()
+    .play(this.gem ?? '');
 
     island.on('pointerover', () => {
       console.log(`Pointer over gem: ${this.gem}`);
