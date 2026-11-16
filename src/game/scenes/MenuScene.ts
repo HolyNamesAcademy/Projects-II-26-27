@@ -3,14 +3,13 @@ import { getDemoMessages } from '../../services/demo';
 import { isSupabaseConfigured } from '../../services/supabase';
 import { getMenu, type Menu, type MenuTab } from '../../services/menu';
 
-type MenuItems = Record<string, Phaser.GameObjects.Text[]>;
 // Simple screen that loads a row from Supabase to confirm setup works.
 export class MenuScene extends Phaser.Scene {
   menu: Menu | null = null;
   private statusText!: Phaser.GameObjects.Text;
   private bodyText!: Phaser.GameObjects.Text;
   private username!: Phaser.GameObjects.Text;
-  private menuMap!: Map<string, MenuTab> = new Map();
+  private menuMap = new Map<string, Phaser.GameObjects.Text[]>();
 
   constructor() {
     super('MenuScene');
@@ -55,21 +54,35 @@ export class MenuScene extends Phaser.Scene {
   }
 
   renderTabs(tabs: MenuTab[]): void {
-      tabs.forEach((tab, index) => {
-        console.log(`Rendering tab: ${tab.label}`);
-        this.createButton(50, 150+index*90, 0, .5, tab.label, () => {});
-        tab.items.forEach((item, itemIndex) => {
-          this.add
+    this.menuMap.clear();
+
+    tabs.forEach((tab, index) => {
+      console.log(`Rendering tab: ${tab.label}`);
+      this.createButton(50, 150 + index * 90, 0, 0.5, tab.label, () => {
+        this.showTab(tab.label);
+      });
+
+      const itemTexts = tab.items.map((item, itemIndex) =>
+        this.add
             .text(700, 150+itemIndex*30, `${item.key}: ${item.value}`, {
               fontFamily: 'Segoe UI, sans-serif',
               fontSize: '20px',
               color: '#f4f7fb',
             })
             .setOrigin(0, 0.5)
-            .setVisible(false);
-          MenuItems[item.key] = this.add
-      }) }
-      )
+            .setVisible(false),
+      );
+
+      this.menuMap.set(tab.label, itemTexts);
+    });
+  }
+
+  private showTab(label: string): void {
+    this.menuMap.forEach((items) => {
+      items.forEach((item) => item.setVisible(false));
+    });
+
+    this.menuMap.get(label)?.forEach((item) => item.setVisible(true));
   }
 
   private createButton(x: number, y: number, x_origin: number, y_origin: number, label: string, onClick: () => void): void {
