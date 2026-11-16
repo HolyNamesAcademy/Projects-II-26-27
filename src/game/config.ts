@@ -24,5 +24,11 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   render: {
     roundPixels: true,
   },
+  physics: {
+    default: 'arcade',
+    arcade: {
+      debug: true,
+    },
+  },
   scene: [BootScene, DemoScene, MazeScene],
 };

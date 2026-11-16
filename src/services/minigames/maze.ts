@@ -1,22 +1,21 @@
 
 
-
+//sets up the parameters of the maze
 export type Maze = {
-  width: number;
-  height: number;
+  size: number; //the length of each side
+  unitsPerSide: number; //the number of units used in rendering the maze per side
   cells: number[][];
   walls: number[][];
 }
 
 // Reads all rows from the demo_messages table.
 export async function generateMaze(): Promise<Maze> {
-  const width = 10;
-  const height = 10;
+  const size = 15; //CHANGE SIZE HERE
 
   const data: Maze = {
-    width: width,
-    height: height,
-    cells: Array.from({ length: width * height }, () => [0]),
+    size: size,
+    unitsPerSide: ( (2 * size) + (size - 1) ),
+    cells: Array.from({ length: size * size }, () => [0]),
     walls: []
   }
 
@@ -26,7 +25,7 @@ export async function generateMaze(): Promise<Maze> {
 
 
   //filling initial walls
-  let initialWalls = fillInitialWalls(height, width);
+  let initialWalls = fillInitialWalls(size);
 
   while (initialWalls.length > 0) {
     const randomWall = initialWalls[Math.floor(Math.random() * initialWalls.length)];
@@ -44,24 +43,23 @@ export async function generateMaze(): Promise<Maze> {
     }
   }
 
-  //console.log(data.cells);
-  //console.log(data.walls);
-
   return data;
 }
 
+
+
 //fills the array of initial walls with all possible walls
-function fillInitialWalls(height : number, width : number) {
+function fillInitialWalls(size: number) {
   let walls = [];
-  for (let j = 0; j < height; j++) {
-    for (let i = 0; i < width; i++) {
-      const current = (width * j) + i;
-      if (i < width - 1) {
+  for (let j = 0; j < size; j++) {
+    for (let i = 0; i < size; i++) {
+      const current = (size * j) + i;
+      if (i < size - 1) {
         walls.push([current, current + 1]);
       }
 
-      if (j < height - 1) {
-        walls.push([current, (width * (j + 1)) + i]);
+      if (j < size - 1) {
+        walls.push([current, (size * (j + 1)) + i]);
       }
     }
   }
@@ -120,7 +118,7 @@ function mergeCells(wall : number[], data : Maze) { //merge the cells when a wal
 
 
 
-
+//makes the maze show up
 declare global {
   interface Window {
     generateMaze: typeof generateMaze;
