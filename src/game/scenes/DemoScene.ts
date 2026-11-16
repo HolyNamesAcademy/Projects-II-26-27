@@ -28,6 +28,8 @@ export class DemoScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
+     
+
     this.statusText = this.add
       .text(this.scale.width / 2, 200, 'Checking configuration…', {
         fontFamily: 'Segoe UI, sans-serif',
