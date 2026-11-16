@@ -13,6 +13,9 @@ export class MazeScene extends Phaser.Scene {
   startTime: number;
   currentTime = 0;
   displayTime: Phaser.GameObjects.Text;
+  start: Phaser.GameObjects.Rectangle;
+  end: Phaser.GameObjects.Rectangle;
+  pauseFrame;
 
   preload() {
     console.log("Preloading!");
@@ -64,15 +67,16 @@ export class MazeScene extends Phaser.Scene {
     this.keys = this.input.keyboard.createCursorKeys();
 
 
-    let start = this.add.rectangle(
+    this.start = this.add.rectangle(
       ((this.scale.width - this.height) / 2) - this.unitWidth,
       ((this.scale.height - this.height) / 2),
       this.unitWidth, this.unitWidth * 2, 0x00ff00, 1).setOrigin(0,0).setDepth(0);
     
-    let end = this.add.rectangle(
-      (((this.scale.width - this.height) / 2) + this.height + this.unitWidth),
+    this.end = this.add.rectangle(
+      (((this.scale.width - this.height) / 2) + this.height),
       ((this.scale.height - this.height) / 2) + this.height - (this.unitWidth * 2),
       this.unitWidth, this.unitWidth * 2, 0xff0000, 1).setOrigin(0,0).setDepth(0);
+
 
 
     this.startTime = this.time.now;
@@ -80,33 +84,35 @@ export class MazeScene extends Phaser.Scene {
       { font: '48px Arial', fill: '#ffffff' }).setOrigin(0.5, 0.5);
     this.displayTime.setDepth(3);
 
-    /*this.anims.create({
+
+
+    this.anims.create({
       key: 'frontWalk',
       frames: this.anims.generateFrameNumbers('mazeGuy', {frames: [0, 1, 2, 3, 4, 5]}),
-      frameRate: 1,
+      frameRate: 4,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'backWalk',
       frames: this.anims.generateFrameNumbers('mazeGuy', {frames: [6, 7, 8, 9, 10, 11]}),
-      frameRate: 1,
+      frameRate: 4,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'rightWalk',
       frames: this.anims.generateFrameNumbers('mazeGuy', {frames: [12, 13, 14, 15, 16, 17]}),
-      frameRate: 1,
+      frameRate: 4,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'leftWalk',
       frames: this.anims.generateFrameNumbers('mazeGuy', {frames: [18, 19, 20, 21, 22, 23]}),
-      frameRate: 1,
+      frameRate: 4,
       repeat: -1,
-    });*/
+    });
   }
 
 
@@ -115,26 +121,36 @@ export class MazeScene extends Phaser.Scene {
     if (this.keys.right.isDown) {
       this.mazeGuy.setVelocityX(move);
       this.mazeGuy.setVelocityY(0);
+      this.mazeGuy.anims.play('rightWalk', true);
     }
     else if (this.keys.left.isDown) {
       this.mazeGuy.setVelocityX(-move);
       this.mazeGuy.setVelocityY(0);
+      this.mazeGuy.anims.play('leftWalk', true);
     }
     else if (this.keys.down.isDown) {
       this.mazeGuy.setVelocityY(move);
       this.mazeGuy.setVelocityX(0);
+      this.mazeGuy.anims.play('frontWalk', true);
     }
     else if (this.keys.up.isDown) {
       this.mazeGuy.setVelocityY(-move);
       this.mazeGuy.setVelocityX(0);
+      this.mazeGuy.anims.play('frontWalk', true);
     }
     else {
       this.mazeGuy.setVelocityX(0);
       this.mazeGuy.setVelocityY(0);
+      this.mazeGuy.anims.pause();
     }
 
-    this.updateTimer()
 
+    this.physics.overlap(this.mazeGuy, this.start, () => {
+      console.log('start');
+    });
+    this.physics.overlap(this.mazeGuy, this.end, () => {
+      console.log('end');
+    });
 
   }
 

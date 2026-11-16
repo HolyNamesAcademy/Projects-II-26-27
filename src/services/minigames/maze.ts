@@ -10,7 +10,7 @@ export type Maze = {
 
 // Reads all rows from the demo_messages table.
 export async function generateMaze(): Promise<Maze> {
-  const size = 15; //CHANGE SIZE HERE
+  const size = 5; //CHANGE SIZE HERE
 
   const data: Maze = {
     size: size,
