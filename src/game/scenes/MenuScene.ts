@@ -19,17 +19,6 @@ export class MenuScene extends Phaser.Scene {
       })
       .setOrigin(0, 0.5);
 
-    this.bodyText = this.add
-      .text(this.scale.width / 2, 280, '', {
-        fontFamily: 'Segoe UI, sans-serif',
-        fontSize: '22px',
-        color: '#f4f7fb',
-        align: 'center',
-        lineSpacing: 10,
-        wordWrap: { width: this.scale.width - 120 },
-      })
-      .setOrigin(0.5, 0);
-
     this.loadMenu();
   }
   async loadMenu(): Promise<void> {
