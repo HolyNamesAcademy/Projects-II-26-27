@@ -4,9 +4,6 @@ import { getMenu, type Menu, type MenuTab } from '../../services/menu';
 // Simple screen that loads a row from Supabase to confirm setup works.
 export class MenuScene extends Phaser.Scene {
   menu: Menu | null = null;
-  private statusText!: Phaser.GameObjects.Text;
-  private bodyText!: Phaser.GameObjects.Text;
-  private username!: Phaser.GameObjects.Text;
   private menuMap = new Map<string, Phaser.GameObjects.Text[]>();
 
   constructor() {
