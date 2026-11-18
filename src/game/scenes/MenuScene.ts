@@ -14,15 +14,13 @@ export class MenuScene extends Phaser.Scene {
   }
 
   create(): void {
-
-
     this.add
       .text(15, 60, 'Menu', {
         fontFamily: 'Segoe UI, sans-serif',
         fontSize: '40px',
         color: '#f4f7fb',
       })
-      .setOrigin(0,0.5);
+      .setOrigin(0, 0.5);
 
     this.bodyText = this.add
       .text(this.scale.width / 2, 280, '', {
@@ -36,7 +34,6 @@ export class MenuScene extends Phaser.Scene {
       .setOrigin(0.5, 0);
 
     this.loadMenu();
-
   }
   async loadMenu(): Promise<void> {
     try {
@@ -45,7 +42,7 @@ export class MenuScene extends Phaser.Scene {
       console.error('Failed to load menu', error);
       return;
     }
- 
+
     // The scene may have been stopped while we were waiting.
     if (!this.sys.isActive()) return;
     this.renderTabs(this.menu?.tabs ?? []);
@@ -62,13 +59,13 @@ export class MenuScene extends Phaser.Scene {
 
       const itemTexts = tab.items.map((item, itemIndex) =>
         this.add
-            .text(700, 150+itemIndex*30, `${item.key}: ${item.value}`, {
-              fontFamily: 'Segoe UI, sans-serif',
-              fontSize: '20px',
-              color: '#f4f7fb',
-            })
-            .setOrigin(0, 0.5)
-            .setVisible(false),
+          .text(700, 150 + itemIndex * 30, `${item.key}: ${item.value}`, {
+            fontFamily: 'Segoe UI, sans-serif',
+            fontSize: '20px',
+            color: '#f4f7fb',
+          })
+          .setOrigin(0, 0.5)
+          .setVisible(false),
       );
 
       this.menuMap.set(tab.label, itemTexts);
@@ -83,7 +80,14 @@ export class MenuScene extends Phaser.Scene {
     this.menuMap.get(label)?.forEach((item) => item.setVisible(true));
   }
 
-  private createButton(x: number, y: number, x_origin: number, y_origin: number, label: string, onClick: () => void): void {
+  private createButton(
+    x: number,
+    y: number,
+    x_origin: number,
+    y_origin: number,
+    label: string,
+    onClick: () => void,
+  ): void {
     const button = this.add
       .text(x, y, label, {
         fontFamily: 'Segoe UI, sans-serif',

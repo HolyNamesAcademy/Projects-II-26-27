@@ -38,9 +38,24 @@ export async function getMenu(): Promise<Menu> {
   return {
     tabs: [
       { label: 'Points', items: [{ type: MenuItemType.NUMBER, key: 'Total Points', value: '0' }] },
-      { label: 'Avatar Settings', items: [{ type: MenuItemType.STRING, key: 'Name', value: 'avatar name' }, { type: MenuItemType.STRING, key: 'Avatar Color', value: 'color' }] },
-      { label: 'Password Settings', items: [{ type: MenuItemType.STRING, key: 'Current Password', value: 'current password' }, { type: MenuItemType.STRING, key: 'New Password', value: 'new password' }] },
-      { label: 'Leaderboard', items: [{ type: MenuItemType.STRING, key: 'Top Players', value: 'top players' }] },
+      {
+        label: 'Avatar Settings',
+        items: [
+          { type: MenuItemType.STRING, key: 'Name', value: 'avatar name' },
+          { type: MenuItemType.STRING, key: 'Avatar Color', value: 'color' },
+        ],
+      },
+      {
+        label: 'Password Settings',
+        items: [
+          { type: MenuItemType.STRING, key: 'Current Password', value: 'current password' },
+          { type: MenuItemType.STRING, key: 'New Password', value: 'new password' },
+        ],
+      },
+      {
+        label: 'Leaderboard',
+        items: [{ type: MenuItemType.STRING, key: 'Top Players', value: 'top players' }],
+      },
     ],
   };
 }
