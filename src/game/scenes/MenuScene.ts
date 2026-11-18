@@ -1,6 +1,4 @@
 import Phaser from 'phaser';
-import { getDemoMessages } from '../../services/demo';
-import { isSupabaseConfigured } from '../../services/supabase';
 import { getMenu, type Menu, type MenuTab } from '../../services/menu';
 
 // Simple screen that loads a row from Supabase to confirm setup works.
