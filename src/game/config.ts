@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { DemoScene } from './scenes/DemoScene';
 import { MenuScene } from './scenes/MenuScene';
+import { CompletionScene } from './scenes/CompletionScene';
 
 export const GAME_WIDTH = 1280;
 export const GAME_HEIGHT = 720;
@@ -23,6 +24,7 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   },
   render: {
     roundPixels: true,
+    antialias: false,
   },
-  scene: [BootScene, DemoScene, MenuScene],
+  scene: [BootScene, DemoScene, MenuScene, CompletionScene],
 };
