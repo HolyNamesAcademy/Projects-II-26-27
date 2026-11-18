@@ -5,6 +5,7 @@
   "description": "PhaserSupabaseTemplate: Phaser 4 + TypeScript + Vite + Supabase classroom starter, deployable to GitHub Pages.",
   "type": "module",
   "scripts": {
+    "check": "npm run lint && npm run format:check && npm run build",
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
