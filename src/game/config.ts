@@ -26,5 +26,4 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
     antialias: false,
   },
   scene: [BootScene, DemoScene, CompletionScene],
-  
 };

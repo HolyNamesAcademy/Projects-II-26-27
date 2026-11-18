@@ -20,7 +20,7 @@ export class CompletionScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-      this.cameras.main.setBackgroundColor('#3ce6c7');
+    this.cameras.main.setBackgroundColor('#3ce6c7');
 
     this.add
       .text(this.scale.width / 2, 200, 'Congratulations', {
@@ -31,7 +31,11 @@ export class CompletionScene extends Phaser.Scene {
 
       .setOrigin(0.5);
 
-      this.add.sprite(this.scale.width / 2, this.scale.height / 2, 'RedGem', 0).play('RedGem').setScale(8).play('RedGem');
+    this.add
+      .sprite(this.scale.width / 2, this.scale.height / 2, 'RedGem', 0)
+      .play('RedGem')
+      .setScale(8)
+      .play('RedGem');
 
     this.statusText = this.add
       .text(this.scale.width / 2, 200, 'Checking configuration…', {
@@ -55,7 +59,7 @@ export class CompletionScene extends Phaser.Scene {
     this.createButton(this.scale.height - 80, 'Refresh', () => {
       void this.loadMessages();
     });
-//this.add.sprite(400, 300, 'GemsSprite', 0).play.setScale(2);
+    //this.add.sprite(400, 300, 'GemsSprite', 0).play.setScale(2);
     void this.loadMessages();
   }
 
