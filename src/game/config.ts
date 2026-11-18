@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene';
 import { DemoScene } from './scenes/DemoScene';
+import { MenuScene } from './scenes/MenuScene';
 import { CompletionScene } from './scenes/CompletionScene';
 
 export const GAME_WIDTH = 1280;
@@ -25,5 +26,5 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
     roundPixels: true,
     antialias: false,
   },
-  scene: [BootScene, DemoScene, CompletionScene],
+  scene: [BootScene, DemoScene, MenuScene, CompletionScene],
 };
